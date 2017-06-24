@@ -212,7 +212,7 @@ static ssize_t store_io_is_busy(struct gov_attr_set *attr_set, const char *buf,
 	ret = sscanf(buf, "%u", &input);
 	if (ret != 1)
 		return -EINVAL;
-	dbs_data->io_is_busy = !!input;
+	dbs_data->io_is_busy = 0;
 
 	/* we need to re-evaluate prev_cpu_idle */
 	gov_update_cpu_data(dbs_data);
