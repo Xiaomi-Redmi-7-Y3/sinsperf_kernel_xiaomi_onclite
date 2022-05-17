@@ -975,7 +975,8 @@ static int takedown_cpu(unsigned int cpu)
 	/* Interrupts are moved away from the dying cpu, reenable alloc/free */
 	irq_unlock_sparse();
 
-	hotplug_cpu__broadcast_tick_pull(cpu);
+	//hotplug_cpu__broadcast_tick_pull(cpu);
+
 	/* This actually kills the CPU. */
 	__cpu_die(cpu);
 
