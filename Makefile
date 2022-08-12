@@ -515,6 +515,10 @@ ifneq ($(filter install,$(MAKECMDGOALS)),)
         endif
 endif
 
+ifeq ($(ld-name),lld)
+LDFLAGS += -O3
+endif
+
 ifeq ($(cc-name),clang)
 ifneq ($(CROSS_COMPILE),)
 CLANG_TRIPLE	?= $(CROSS_COMPILE)
@@ -694,6 +698,8 @@ LDFLAGS		+= -plugin LLVMgold.so
 # of objdump for processing symbol versions and exports
 LLVM_AR		:= llvm-ar
 LLVM_DIS	:= llvm-dis
+# Set O3 optimization level for LTO
+LDFLAGS		+= --plugin-opt=O3
 export LLVM_AR LLVM_DIS
 endif
 
