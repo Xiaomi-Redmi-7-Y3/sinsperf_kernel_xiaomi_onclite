@@ -406,6 +406,8 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -pipe \
 
 # Flags to tune generated code for Cortex-A53 CPU
 KBUILD_CFLAGS += -march=armv8-a -mtune=cortex-a53
+KBUILD_CFLAGS += -march=armv8-a -mtune=cortex-a73
+KBUILD_CFLAGS += -march=armv8-a -mtune=kryo
 
 KBUILD_CPPFLAGS := -D__KERNEL__
 KBUILD_AFLAGS_KERNEL :=
